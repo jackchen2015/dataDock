@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.cw.User;
+import com.cw.mapping.UserMapperI;
+import com.cw.util.MapperFactory;
 
 public class Test1 {
 
@@ -32,6 +34,10 @@ public class Test1 {
         //执行查询返回一个唯一user对象的sql
         User user = session.selectOne(statement, 1);
         System.out.println(user);
+
+        UserMapperI mapper = MapperFactory.MYSQL.createMapper(UserMapperI.class);  
+        User user1 = mapper.getById(1);  
+        System.out.println(user);  
 	}
 
 }

@@ -7,13 +7,14 @@ import org.junit.Test;
 
 import com.cw.User;
 import com.cw.util.MyBatisUtil;
+import com.cw.util.MyBatisUtil.DataSourceEnvironment;
 
 public class TestCRUDByXmlMapper {
 
     @Test
     public void testAdd(){
         //SqlSession sqlSession = MyBatisUtil.getSqlSession(false);
-        SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory(DataSourceEnvironment.MYSQL).openSession();
         /**
          * 映射sql的标识字符串，
          * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
@@ -34,7 +35,7 @@ public class TestCRUDByXmlMapper {
     
     @Test
     public void testUpdate(){
-        SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory(DataSourceEnvironment.MYSQL).openSession();
         /**
          * 映射sql的标识字符串，
          * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
@@ -54,7 +55,7 @@ public class TestCRUDByXmlMapper {
     
     @Test
     public void testDelete(){
-        SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory(DataSourceEnvironment.MYSQL).openSession();
         /**
          * 映射sql的标识字符串，
          * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，
@@ -70,7 +71,7 @@ public class TestCRUDByXmlMapper {
     
     @Test
     public void testGetAll(){
-        SqlSession sqlSession = MyBatisUtil.getSqlSession();
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory(DataSourceEnvironment.MYSQL).openSession();
         /**
          * 映射sql的标识字符串，
          * me.gacl.mapping.userMapper是userMapper.xml文件中mapper标签的namespace属性的值，

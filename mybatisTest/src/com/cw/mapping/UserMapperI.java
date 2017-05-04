@@ -1,7 +1,10 @@
 package com.cw.mapping;
 
 import java.util.List;
+
 import com.cw.User;
+import com.cw.util.Mapper;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -11,7 +14,7 @@ import org.apache.ibatis.annotations.Update;
  * @author cw
  * 定义sql映射的接口，使用注解指明方法要执行的SQL
  */
-public interface UserMapperI {
+public interface UserMapperI extends Mapper{
 
     //使用@Insert注解指明add方法要执行的SQL
     @Insert("insert into users(name, age) values(#{name}, #{age})")

@@ -8,12 +8,13 @@ import org.junit.Test;
 import com.cw.User;
 import com.cw.mapping.UserMapperI;
 import com.cw.util.MyBatisUtil;
+import com.cw.util.MyBatisUtil.DataSourceEnvironment;
 
 public class TestCRUDByAnnotationMapper {
 
     @Test
     public void testAdd(){
-        SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory(DataSourceEnvironment.MYSQL).openSession();
         //得到UserMapperI接口的实现类对象，UserMapperI接口的实现类对象由sqlSession.getMapper(UserMapperI.class)动态构建出来
         UserMapperI mapper = sqlSession.getMapper(UserMapperI.class);
         User user = new User();
@@ -27,7 +28,7 @@ public class TestCRUDByAnnotationMapper {
     
     @Test
     public void testUpdate(){
-        SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory(DataSourceEnvironment.MYSQL).openSession();
         //得到UserMapperI接口的实现类对象，UserMapperI接口的实现类对象由sqlSession.getMapper(UserMapperI.class)动态构建出来
         UserMapperI mapper = sqlSession.getMapper(UserMapperI.class);
         User user = new User();
@@ -43,7 +44,7 @@ public class TestCRUDByAnnotationMapper {
     
     @Test
     public void testDelete(){
-        SqlSession sqlSession = MyBatisUtil.getSqlSession(true);
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory(DataSourceEnvironment.MYSQL).openSession();
         //得到UserMapperI接口的实现类对象，UserMapperI接口的实现类对象由sqlSession.getMapper(UserMapperI.class)动态构建出来
         UserMapperI mapper = sqlSession.getMapper(UserMapperI.class);
         //执行删除操作
@@ -55,7 +56,7 @@ public class TestCRUDByAnnotationMapper {
     
     @Test
     public void testGetUser(){
-        SqlSession sqlSession = MyBatisUtil.getSqlSession();
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory(DataSourceEnvironment.MYSQL).openSession();
         //得到UserMapperI接口的实现类对象，UserMapperI接口的实现类对象由sqlSession.getMapper(UserMapperI.class)动态构建出来
         UserMapperI mapper = sqlSession.getMapper(UserMapperI.class);
         //执行查询操作，将查询结果自动封装成User返回
@@ -67,7 +68,7 @@ public class TestCRUDByAnnotationMapper {
     
     @Test
     public void testGetAll(){
-        SqlSession sqlSession = MyBatisUtil.getSqlSession();
+        SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory(DataSourceEnvironment.MYSQL).openSession();
         //得到UserMapperI接口的实现类对象，UserMapperI接口的实现类对象由sqlSession.getMapper(UserMapperI.class)动态构建出来
         UserMapperI mapper = sqlSession.getMapper(UserMapperI.class);
         //执行查询操作，将查询结果自动封装成List<User>返回
