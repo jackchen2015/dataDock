@@ -2,22 +2,22 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <environments default="development">
-        <environment id="sqlserver">
+        <environment id="MSSQL">
             <transactionManager type="JDBC" />
             <!-- 配置数据库连接信息 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-                <property name="url" value="jdbc:sqlserver://127.0.0.1:1434;Database=dpms" />
+                <property name="url" value="jdbc:sqlserver://10.10.10.10:1433;Database=IPCDB" />
                 <property name="username" value="sa" />
-                <property name="password" value="chen" />
+                <property name="password" value="Huawei12#$" />
             </dataSource>
         </environment>
-        <environment id="mysql">
+        <environment id="MYSQL">
             <transactionManager type="JDBC" />
             <!-- 配置数据库连接信息 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useUnicode=true&amp;characterEncoding=utf8" />
+                <property name="url" value="jdbc:mysql://172.16.1.203:3306/mybatis?useUnicode=true&amp;characterEncoding=utf8" />
                 <property name="username" value="root" />
                 <property name="password" value="chen" />
             </dataSource>

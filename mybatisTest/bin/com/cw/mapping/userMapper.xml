@@ -35,6 +35,21 @@
     <select id="getAllUsers" resultType="com.cw.User">
         select * from users
     </select>
-
-
+<!-- 
+	<insert id="insertBatch" parameterType="ArrayList">  
+    insert into onlinedetail(userId,userMac,nasip,loginTime,logoutTime,onlineSec,createTime,
+    authenMethod,userName,ssid,apMac) values 
+    <foreach collection="list" item="obj" index="index" separator="," >  
+       (#{obj.userId},#{obj.userMac},#{obj.nasip},#{obj.loginTime},#{obj.logoutTime},#{obj.onlineSec},#{obj.createTime},
+       #{obj.authenMethod},#{obj.userName},#{obj.ssid},#{obj.apMac})
+     </foreach>
+     </insert>
+      -->
+	<insert id="insertBatch" parameterType="ArrayList">  
+    insert into users(name,age) values 
+    <foreach collection="list" item="obj" index="index" separator="," >  
+       (#{obj.name},#{obj.age})
+     </foreach>
+     </insert>
+      
 </mapper>
